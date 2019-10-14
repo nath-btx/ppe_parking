@@ -9,7 +9,7 @@
   <title>Parking</title>
   <script>
   function myFunction() {
-    alert("coucou");
+    alert("bonsoir");
   }
   </script>
 </head>
