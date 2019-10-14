@@ -1,3 +1,7 @@
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=ppe-parking;charset=utf8', 'root', '');
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -5,7 +9,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/PPE.css">
   <title>Parking</title>
   <script>
   function myFunction() {
@@ -21,9 +25,10 @@
 
   <main>
     <section>
-      <form action="/action_page.php">
-        First name: <input type="text" name="fname"><br>
-        Last name: <input type="text" name="lname"><br>
+      <form action="/connexion.php">
+        First name: <input type="text" name="fname"></br>
+        Last name: <input type="text" name="lname"></br>
+        Password : <input type="text" name="mdp"> </br>
         <input type="submit" value="Submit">
       </form>
       <button onclick="myFunction()">Click me</button>
