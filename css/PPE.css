@@ -1,1 +1,32 @@
+html,body{
+    font: 16px 'Open Sans', sans-serif;
+    margin: 75px;
+}
+h1,h2,p,ul{
+    margin: 0;
+    font-weight: 300;
+    list-style-type: none;
+    padding:0;
 
+}
+a{
+    text-decoration: none;
+    color: #222;
+}
+*{
+    box-sizing: border-box;
+}
+header h1{
+    line-height: 60px;
+    text-align: center;
+}
+main,footer{
+    max-width: 800px;
+    margin: 50px auto 10px;
+    /*overflow: hidden;*/
+    display: table;
+    background: #fff;
+}
+footer{
+  margin: 290px auto 10px;
+}
