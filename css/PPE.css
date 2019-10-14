@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+
 html,body{
     font: 16px 'Open Sans', sans-serif;
     margin: 75px;
@@ -28,5 +30,5 @@ main,footer{
     background: #fff;
 }
 footer{
-  margin: 290px auto 10px;
+  margin: 17.5rem auto 10px;
 }
