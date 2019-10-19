@@ -2,7 +2,7 @@
 <html lang="fr" dir = "ltr">
 <head>
         <meta charset="UTF-8">
-        <meta name="Description" content="La ville de New York.">
+        <meta name="Description" content="Parking">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
@@ -14,6 +14,40 @@
     <header>
         <h1> Parking </h1> 
     </header>
+    <main>
+            <section class = "wrapper">
+                <form action="./pages/inscription.php">
+                    <ul>
+                        <li><h2> Inscription </h2></li>
+                        <li>Nom</li>
+                        <li><input type="text" name="nom"></li>
+                        <li>Prénom</li>
+                        <li><input type="text" name="prenom"></li>
+                        <li>E-mail</li>
+                        <li><input type="text" name="email"></li>
+                        <li>Mot de passe</li>
+                        <li><input type="text" name="mdp"></li>
+                        <li><input class="button" type="submit" value="S'inscrire">
+                        </li>
+                        
+                    </ul>
+                </form>
+                <form action="./pages/connexion.php">
+                    <ul>
+                        <li><h2>Connexion</h2></li>
+                        <li>E-mail</li>
+                        <li><input type="text" name="email"></li>
+                        <li>Mot de passe</li>
+                        <li><input type="text" name="mdp"></li>
+                        <li><input class="button" type="submit" value="Connexion">
+                        </li>
+                    </ul>
+                </form>
+            </section>
+    </main>
+    <footer>
+        Nathan &amp; Benjamin - ppe
+    </footer>
     
 </body>
 </html>

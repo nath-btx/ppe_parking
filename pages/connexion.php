@@ -16,7 +16,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe-parking;charset=utf8', 'root', '
 <body>
   <?php
 
-    $fname = $_GET['fname']; $lname = $_GET['lname']; $mdp = $_GET['mdp'];
+    $email = $_GET['email']; $mdp = $_GET['mdp'];
 
     $requete = $bdd->prepare('INSERT INTO utilisateur (nom, prenom, mdp)
      VALUES :nom, :prenom, :mdp');

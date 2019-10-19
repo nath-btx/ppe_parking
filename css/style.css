@@ -1,34 +1,76 @@
+/* reset css */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
 
-html,body{
-    font: 16px 'Open Sans', sans-serif;
-    margin: 75px;
+html, body {
+    font: 16px 'Open Sans',sans-serif;/*root*/
+    margin:0;
+    background: #EEE;
 }
-h1,h2,p,ul{
-    margin: 0;
-    font-weight: 300;
-    list-style-type: none;
-    padding:0;
 
+h1,h2,h3,p,ul{
+    font-weight: 100;
+    margin: 0; 
+    padding: 0;
+    list-style-type: none;
+}
+
+*{
+    box-sizing: border-box;
 }
 a{
     text-decoration: none;
-    color: #222;
 }
-*{
-    box-sizing: border-box;
+
+/*theme*/
+:root{
+    --color-default: #ccc;
+    --color-primary: rgba(53, 59, 72,1.0);
+    --color-secondary: rgba(113, 128, 147,1.0);
+    --color-success: rgba(76, 209, 55,1.0);
+    --color-warning: rgba(235, 47, 6,1.0);
+    --color-third:rgba(72, 126, 176,1.0);
+}
+
+header {
+    background: var(--color-secondary);
 }
 header h1{
     line-height: 60px;
     text-align: center;
 }
+
+
+main>section>form{
+    background: #FFF;
+    padding: 15px;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 200px;
+}
+.button{
+    background-color: var(--color-default);
+    border: none;
+    color: white;
+    padding: 0px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
 main,footer{
-    max-width: 800px;
-    margin: 50px auto 10px;
+    max-width: 900px;
+    margin: 30px auto 10px ;
     /*overflow: hidden;*/
     display: table;
-    background: #fff;
 }
 footer{
   margin: 17.5rem auto 10px;
+  background: #FFF;
 }
