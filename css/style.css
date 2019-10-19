@@ -34,9 +34,10 @@ a{
 header {
     background: var(--color-secondary);
 }
-header h1 h2{
+header h1{
     line-height: 60px;
     text-align: center;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
 }
 
 a{
@@ -53,7 +54,12 @@ a{
 
 main>section>form{
     background: #FFF;
-    padding: 15px;
+    padding: 15px 25px;
+    border-radius:15px;
+}
+
+main>section>form>ul>li{
+    padding-top: 3px;
 }
 .wrapper {
     display: grid;
@@ -75,10 +81,6 @@ main>section>form{
     cursor: pointer;
     border-radius: 15px;
 }
-.button:active {
-    outline:none;
-}
-
 
 main,footer{
     max-width: 900px;
@@ -88,5 +90,4 @@ main,footer{
 }
 footer{
   margin: 17.5rem auto 10px;
-  background: #FFF;
 }

@@ -1,42 +1,48 @@
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=ppe-parking;charset=utf8', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '');
 ?>
 
+<?php
+  $email=$_POST['email'];
+  $mdp=$_POST['mdp'];
+  $array = array(
+    'email' => $email,
+    'mdp' => $mdp,
+    );
+  $requete=$bdd->prepare('SELECT idnum, email, mdp, admin FROM utilisateur WHERE email = "'.$email.'" AND mdp = "'.$mdp.'"');
+  $requete->execute();
+  $resultat = $requete->fetch();
+  $idnum = $resultat['idnum'];
+  echo $idnum. '<br>';
+  if ($resultat){
+    if ($resultat['admin'] == 0){
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta name="Description" content="Put your description here.">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./css/PPE.css">
-  <title>Parking</title>
-</head>
-<body>
-  <?php
+    }
+    session_start();
+    $_SESSION["login"]=$idnum;
 
-    $email = $_GET['email']; $mdp = $_GET['mdp'];
+    echo "c\'est bon";
+    
+    echo '<script language="Javascript">
+	  <!--
+	  document.location.replace("connecte.php");
+	  // -->
+    </script>';
+  }
+    
+  
+  
 
-    $requete = $bdd->prepare('INSERT INTO utilisateur (nom, prenom, mdp)
-     VALUES :nom, :prenom, :mdp');
-    $requete->execute(array(':nom'=>$_GET['lname'], ':prenom'=>$_GET['fname'],':mdp'=>$_GET['mdp']));
+  else {
+    echo "c\'est pas bon";
+    echo '<script language="Javascript">
+    <!--
+    document.location.replace("../index.html");
+    // -->
+    </script>';
+    }
+  
 
-
+  
   ?>
-  <p> First name : <?php echo $fname; ?> <br>
-    Last name : <?php echo $lname; ?> <br>
-    Password : <?php echo $mdp; ?> <br>
-  </p>
 
-  <?php
-  /* echo '<script language="Javascript">
-	<!--
-	document.location.replace("PPE.php");
-	// -->
-	</script>';
-  */
-  ?>
-
-</body>
-</html>
