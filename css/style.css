@@ -34,8 +34,19 @@ a{
 header {
     background: var(--color-secondary);
 }
-header h1{
+header h1 h2{
     line-height: 60px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    background:var(--color-default);
+    color: #FFF;
+    display: block;
+    padding: 10px;
+    width: 100px;
+    margin: 10px auto;
     text-align: center;
 }
 
@@ -49,18 +60,23 @@ main>section>form{
     grid-template-columns: repeat(2, 2fr);
     grid-gap: 200px;
 }
+
 .button{
+    max-width: 200px;
     background-color: var(--color-default);
     border: none;
     color: white;
-    padding: 0px 32px;
+    padding: 8px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 10px 2px 2px 0px;
     cursor: pointer;
     border-radius: 15px;
+}
+.button:active {
+    outline:none;
 }
 
 
