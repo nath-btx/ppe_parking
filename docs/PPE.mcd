@@ -1,0 +1,7 @@
+
+UTILISATEUR: idnum, nom, prenom, admin, mdp, place
+RESERVER, 0N UTILISATEUR, 0N PLACE, 01 DATE: heurereserve, datereserve
+PLACE: idplace, libre
+
+DATE: 
+
