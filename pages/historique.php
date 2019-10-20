@@ -20,32 +20,27 @@ if ($_SESSION["login"]){
         <h1> Parking </h1> 
     </header>
     <main>
-<?php
-    $requete=$bdd->prepare('SELECT idnum, nom, prenom, email, admin FROM utilisateur WHERE admin = 0');
-    $requete->execute();
-//$resultat = $requete->fetch();
+    <a href="connecte.php"> Retour </a>            
 
-?>
+<?php
+$idnum = $_SESSION['login'];
+    $requete=$bdd->prepare('SELECT datetime, idplace FROM date WHERE idnum = '.$_SESSION['login'].' ORDER BY datetime DESC');
+    $requete->execute();
+    ?>
     <table>
         <tr>
-            <th> Nom    </th>
-            <th> Prénom </th>
-            <th> E-mail </th>
-            <th> &#9776;       </th>
+            <th> Place</th>
+            <th> Date </th>
         </tr>
 <?php
 while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
 ?>
-
-    <tr><td> <?php echo $row['nom']?> </td>
-        <td> <?php echo $row['prenom'];?></td> 
-        <td> <?php echo $row['email'];?></td> 
-        <td> <a href="admin.php?idnum=<?php echo $row['idnum']; ?>"> Vérifier. </a> </td> 
-        
+    <tr><td> <?php echo $row['idplace']?> </td>
+        <td> <?php echo $row['datetime'];?></td>         
     </tr>
 <?php   }   ?>
-    </table>
-    <a href="connecte.php"> Retour </a>            
+</table>
+    
     </main>
     <footer>
         Nathan &amp; Benjamin - ppe

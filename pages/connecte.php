@@ -1,7 +1,7 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '');
 session_start();
-$requete2=$bdd->prepare('SELECT idplace FROM utilisateur WHERE idnum = "'.$_SESSION["login"].'"');
+$requete2=$bdd->prepare('SELECT reserver.idplace FROM reserver, place WHERE idnum = "'.$_SESSION["login"].'" AND place.idplace = reserver.idplace AND libre = 1');
 $requete2->execute();
 $resultat2 = $requete2->fetch();
 $idplace = $resultat2['idplace'];
@@ -41,9 +41,9 @@ if ($admin == 0){
 }
 
 else if ($admin == 1 || $admin == 2){
-if ($idplace == 0) {
+if (!isset($idplace)) {
 ?>
-            <a href="obtenirplace.php?idnum=<?php echo $_SESSION['login']; ?>"> Obtenir une place </a>
+    <a href="obtenirplace.php?idnum=<?php echo $_SESSION['login']; ?>"> Obtenir une place </a>
 
 <?php }
 else {
@@ -53,15 +53,16 @@ else {
 <?php
 }
 ?>
-            <a href="finreservation.php?fin=1"> Déconnexion </a>
+    <a href="historique.php"> Historique des réservations </a>
+    <a href="finreservation.php?fin=1"> Déconnexion </a>
 <?php
 }
+?>
 
 
 
 
-
-
+<?php
 if ($admin == 2) {
 ?>
 <a href="./pageadmin.php"> Page admin </a>

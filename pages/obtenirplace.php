@@ -18,8 +18,6 @@ echo $idplace;
 
 $_SESSION['idplace'] = $idplace;
 
-$requete2=$bdd->prepare('UPDATE utilisateur SET idplace = "'.$idplace.'" WHERE idnum ='.$idnum);
-$requete2->execute();
 $requete3=$bdd->prepare('UPDATE place SET libre = 1 WHERE idplace = '.$idplace);
 $requete3->execute();
 $requete4=$bdd->prepare('INSERT INTO date (datetime, idplace, idnum) VALUES (now(), :idplace, :idnum)');
@@ -27,7 +25,7 @@ $array = array(
     'idplace' => $idplace,
     'idnum' => $idnum);
 $requete4->execute($array);
-$requete5=$bdd->prepare('UPDATE reserver SET datetime = now(),idnum = '.$idnum.' WHERE idplace = '.$idplace);
+$requete5=$bdd->prepare('UPDATE reserver SET datetime = now(), idnum = '.$idnum.' WHERE idplace = '.$idplace);
 $requete5->execute();
 
 
