@@ -19,6 +19,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
     }
     session_start();
     $_SESSION["login"]=$idnum;
+    $_SESSION["idplace"] = 0;
 
     echo "c\'est bon";
     
