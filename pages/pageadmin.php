@@ -27,6 +27,7 @@ if ($_SESSION["login"]){
 
 ?>
     <table>
+        <caption> Comptes à vérifier </caption>
         <tr>
             <th> Nom    </th>
             <th> Prénom </th>
@@ -41,6 +42,37 @@ while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
         <td> <?php echo $row['prenom'];?></td> 
         <td> <?php echo $row['email'];?></td> 
         <td> <a href="admin.php?idnum=<?php echo $row['idnum']; ?>"> Vérifier. </a> </td> 
+        
+    </tr>
+<?php   }   ?>
+    </table>
+    <?php
+    $requete=$bdd->prepare('SELECT reserver.idnum, nom, prenom,email, place.idplace FROM utilisateur, place, reserver
+                            WHERE place.idplace = reserver.idplace AND utilisateur.idnum = reserver.idnum AND libre = 1');
+    $requete->execute();
+//$resultat = $requete->fetch();
+
+?>
+    <table>
+        <caption> Réservation en cours </caption>
+        <tr>
+            <th> Id    </th>
+            <th> Nom </th>
+            <th> Prénom </th>
+            <th> E-mail </th>
+            <th> Place </th>
+            <th> &#9776;       </th>
+        </tr>
+<?php
+while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
+?>
+
+    <tr><td> <?php echo $row['idnum']?> </td>
+        <td> <?php echo $row['nom'];?></td>
+        <td> <?php echo $row['prenom'];?></td> 
+        <td> <?php echo $row['email'];?></td>  
+        <td> <?php echo $row['idplace'];?></td> 
+        <td> <a href="finreservation.php?idnum=<?php echo $row['idnum']; ?>"> Annuler réservation. </a> </td> 
         
     </tr>
 <?php   }   ?>

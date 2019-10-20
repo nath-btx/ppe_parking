@@ -37,6 +37,10 @@ header h1{
     text-align: center;
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
 }
+h2{
+    line-height: 60px;
+    text-align: center;
+}
 
 a{
     text-decoration: none;
@@ -79,6 +83,21 @@ main>section>form>ul>li{
     margin: 10px 2px 2px 0px;
     cursor: pointer;
     border-radius: 15px;
+}
+
+/*tableau*/
+table{
+    table-layout:fixed;
+    max-width:900px;
+    min-width: 500px;
+}
+td, th{
+    text-align: center;
+}
+caption{
+    padding: 3px;
+    text-align: center;
+    letter-spacing: 0.5px;
 }
 
 main,footer{

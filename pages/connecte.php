@@ -28,9 +28,22 @@ if ($_SESSION["login"]){
 
 
 <?php 
-$requete=$bdd->prepare('SELECT idnum, admin FROM utilisateur WHERE idnum = "'.$_SESSION["login"].'"');
+$requete=$bdd->prepare('SELECT idnum, admin, file FROM utilisateur WHERE idnum = "'.$_SESSION["login"].'"');
 $requete->execute();
 $resultat = $requete->fetch();
+$file = $resultat['file'];
+if ($file > 0){
+$requete3=$bdd->prepare('SELECT libre from place WHERE libre = 0');
+$requete3->execute();
+$resultat = $requete3->fetch();
+if(isset($resultat)){
+    echo '<script language="Javascript">
+    <!--
+    document.location.replace("obtenirplace.php");
+    // -->
+    </script>';
+}
+}
 $admin = $resultat['admin'];
 if ($admin == 0){
     echo '<script language="Javascript">
@@ -40,7 +53,7 @@ if ($admin == 0){
     </script>';
 }
 
-else if ($admin == 1 || $admin == 2){
+else if (($admin == 1 || $admin == 2) && $file == 0){
 if (!isset($idplace)) {
 ?>
     <a href="obtenirplace.php?idnum=<?php echo $_SESSION['login']; ?>"> Obtenir une place </a>
@@ -48,13 +61,21 @@ if (!isset($idplace)) {
 <?php }
 else {
 ?>
-    <p> Vous pouvez vous garer à la place numéro <?php echo $idplace; ?>. </p>
+    <p> Vous pouvez vous garer à la place numéro </p>
+    <h2><?php echo $idplace; ?>.</h2>
     <a href="finreservation.php"> Arrêter la réservation </a>
 <?php
 }
 ?>
     <a href="historique.php"> Historique des réservations </a>
     <a href="finreservation.php?fin=1"> Déconnexion </a>
+<?php
+}
+
+else if (($admin == 1 || $admin == 2) && $file > 0){
+?>
+    <p> Vous êtes numéro <?php echo $file; ?> dans la file. </p>
+    <a href="connecte.php"> Recharger </a>
 <?php
 }
 ?>
