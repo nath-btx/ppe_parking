@@ -1,13 +1,14 @@
 <?php
 session_start();
-$idnum = $_GET['idnum'];
+$idnum = $_SESSION['login'];
 echo $idnum; echo "<br/>";
 
 $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '');
-/*
-$requete5=$bdd->prepare('UPDATE place, date SET libre = 0 WHERE place.idplace = date.idplace AND max(datetime) < DATE_SUB(now(),interval 1 hour)');
-$requete5->execute();
-*/
+
+$requete6=$bdd->prepare('UPDATE place, reserver SET libre = 0 WHERE place.idplace = reserver.idplace AND datetime < DATE_SUB(now(),interval 1 hour)');
+$requete6->execute();
+
+
 $requete=$bdd->prepare('SELECT idplace, libre FROM place WHERE libre = 0 ORDER BY RAND() LIMIT 1');
 $requete->execute();
 $resultat = $requete->fetch();
@@ -26,6 +27,10 @@ $array = array(
     'idplace' => $idplace,
     'idnum' => $idnum);
 $requete4->execute($array);
+$requete5=$bdd->prepare('UPDATE reserver SET datetime = now(),idnum = '.$idnum.' WHERE idplace = '.$idplace);
+$requete5->execute();
+
+
 
 
 echo '<script language="Javascript">

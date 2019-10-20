@@ -67,9 +67,8 @@ if ($admin == 2) {
 <a href="./pageadmin.php"> Page admin </a>
     </main>
     <footer>
-        Nathan &amp; Benjamin - ppe <br/>
+        Nathan &amp; Benjamin - ppe
     </footer>
-    
 </body>
 </html>
 <?php }}
