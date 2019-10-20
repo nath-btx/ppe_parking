@@ -1,8 +1,7 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '');
-?>
 
-<?php
+
   $email=$_POST['email'];
   $mdp=$_POST['mdp'];
   $array = array(

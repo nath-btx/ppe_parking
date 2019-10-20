@@ -21,9 +21,29 @@ if ($_SESSION["login"]){
         <h1> Parking </h1> 
     </header>
     <main>
+
+
+<?php 
+$requete=$bdd->prepare('SELECT idnum, admin FROM utilisateur WHERE idnum = "'.$_SESSION["login"].'"');
+$requete->execute();
+$resultat = $requete->fetch();
+$admin = $resultat['admin'];
+if ($admin == 0){
+    echo '<script language="Javascript">
+    <!--
+    document.location.replace("inscrit.html");
+    // -->
+    </script>';
+}
+else if ($admin == 1 || $admin == 2){
+?>
             <p>
                 Vous êtes connecté
             </p>
+<?php }
+if ($admin == 2) {
+?>
+<a href="./pageadmin.php"> Page admin </a>
     </main>
     <footer>
         Nathan &amp; Benjamin - ppe
@@ -31,11 +51,11 @@ if ($_SESSION["login"]){
     
 </body>
 </html>
-<?php }
+<?php }}
 else {
 echo '<script language="Javascript">
 <!--
-document.location.replace("pageerreur.html");
+document.location.replace("../index.html");
 // -->
 </script>';
 echo "vous n\'êtes pas connectés";
