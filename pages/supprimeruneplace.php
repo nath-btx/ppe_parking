@@ -12,9 +12,9 @@ $requete3->execute();
 
 
 echo '<script language="Javascript">
-    <!--
-    document.location.replace("supprimerplace.php");
-    // -->
-    </script>';
+<!--
+document.location.replace("supprimerplace.php");
+// -->
+</script>';
 
 ?>

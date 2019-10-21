@@ -23,6 +23,8 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
     $requete->execute();
     ?>
     <main>
+    <a href="pageadmin.php"> Retour </a>            
+
     <table>
         <tr>
             <th> Place   </th>

@@ -23,6 +23,9 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
     $requete->execute();
     ?>
     <main>
+    <a href="ajouteruneplace.php"> Ajouter une place </a>
+    <a href="pageadmin.php"> Retour </a>            
+
     <table>
         <tr>
             <th> Place   </th>
@@ -35,8 +38,6 @@ while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
     </tr>
 <?php   }   ?>
     </table>
-    <a href="ajouteruneplace.php"> Ajouter une place </a>
-    <a href="pageadmin.php"> Retour </a>            
 
 
     </main>
