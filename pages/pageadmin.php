@@ -72,7 +72,7 @@ while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
         <td> <?php echo $row['prenom'];?></td> 
         <td> <?php echo $row['email'];?></td>  
         <td> <?php echo $row['idplace'];?></td> 
-        <td> <a href="finreservation.php?idnum=<?php echo $row['idnum']; ?>"> Annuler réservation. </a> </td> 
+        <td> <a href="finreservation.php?idplace=<?php echo $row['idplace']; ?>"> Annuler réservation. </a> </td> 
         
     </tr>
 <?php   }   ?>

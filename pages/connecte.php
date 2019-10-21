@@ -87,13 +87,14 @@ else if (($admin == 1 || $admin == 2) && $file > 0){
 if ($admin == 2) {
 ?>
 <a href="./pageadmin.php"> Page admin </a>
+<?php } ?>
     </main>
     <footer>
         Nathan &amp; Benjamin - ppe
     </footer>
 </body>
 </html>
-<?php }}
+<?php }
 else {
 echo '<script language="Javascript">
 <!--

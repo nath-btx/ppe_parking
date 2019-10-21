@@ -12,7 +12,6 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
   $requete->execute();
   $resultat = $requete->fetch();
   $idnum = $resultat['idnum'];
-  echo $idnum. '<br>';
   if ($resultat){
     if ($resultat['admin'] == 0){
 
@@ -21,7 +20,6 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
     $_SESSION["login"]=$idnum;
     $_SESSION["idplace"] = 0;
 
-    echo "c\'est bon";
     
     echo '<script language="Javascript">
 	  <!--

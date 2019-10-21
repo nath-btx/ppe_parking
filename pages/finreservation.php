@@ -31,5 +31,4 @@ else {
       document.location.replace("connecte.php");
       // -->
       </script>';
-
 }
