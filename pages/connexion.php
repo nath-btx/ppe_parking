@@ -32,7 +32,6 @@ $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '
   
 
   else {
-    echo "c\'est pas bon";
     echo '<script language="Javascript">
     <!--
     document.location.replace("../index.html");

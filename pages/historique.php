@@ -51,7 +51,6 @@ while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
 <?php
 }
 else {
-    echo "c\'est pas bon";
     echo '<script language="Javascript">
     <!--
     document.location.replace("../index.html");
