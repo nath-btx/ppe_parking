@@ -1,7 +1,6 @@
 <?php
 session_start();
 $idnum = $_SESSION['login'];
-echo $idnum; echo "<br/>";
 
 $bdd = new PDO('mysql:host=localhost;dbname=ppe_parking;charset=utf8', 'root', '');
 
@@ -16,8 +15,6 @@ $resultat = $requete->fetch();
 
 if (!is_null($resultat)){
 $idplace = $resultat['idplace'];
-echo "id de la place : ";
-echo $idplace;
 
 $_SESSION['idplace'] = $idplace;
 
@@ -41,7 +38,6 @@ else {
     $requete10->execute();
     $resultat2=$requete10->fetch();
     $file = $resultat2['file'];
-    echo $file;
 
     $requete9=$bdd->prepare('UPDATE utilisateur SET file ='.$file.' WHERE idnum = '.$idnum);
     $requete9->execute();
