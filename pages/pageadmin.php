@@ -26,6 +26,17 @@ if ($_SESSION["login"]){
 //$resultat = $requete->fetch();
 
 ?>
+<a href="ajouterplace.php"> Ajouter place </a>
+<a href="supprimerplace.php"> Supprimer place </a>
+<?php
+$requete3=$bdd->prepare('SELECT count(*) as maxplace FROM place');
+$requete3->execute();
+$resultat = $requete3->fetch();
+$maxplace = $resultat['maxplace'];
+?>
+<p> Il y a au total <?php echo $maxplace;?> places </p> 
+
+
     <table>
         <caption> Comptes à vérifier </caption>
         <tr>
@@ -60,8 +71,8 @@ while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
             <th> Nom </th>
             <th> Prénom </th>
             <th> E-mail </th>
-            <th> Place </th>
-            <th> &#9776;       </th>
+            <th> Place  </th>
+            <th> &#9776;</th>
         </tr>
 <?php
 while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
